@@ -49,11 +49,6 @@ RUN echo "done 0" \
 # ---------------------------------------------------------------------------- #
 
 # init poetry with noninteractive mode and no-root mode 
+COPY pyproject.toml ./
 RUN poetry init --noninteractive \
-    && poetry add --no-root \
-        darts \
-        fastapi \
-        uvicorn \
-        pydantic \
-        requests \
-        scikit-learn
+    && poetry install --no-root
